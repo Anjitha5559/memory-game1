@@ -1,12 +1,14 @@
 const gameBody = document.getElementById('gameBody');
-
+const score = document.getElementById('score');
+const cardBack = document.querySelectorAll('.cardBack');
+let firstCard = null;
+let secondCard = null;
 startGame();
 function startGame(){
     var realArray = makeRandArray();
     formMatrix(realArray);
     flipcard();
 }
-
 function makeRandArray(size=4){
     size = (size*size)/2;
     console.log(size);
@@ -24,7 +26,6 @@ function makeRandArray(size=4){
     realArray.sort(() => Math.random() - 0.5);
     console.log(realArray);
     return realArray;
-
 }
 function formMatrix(realArray,size=4){
     gameBody.innerHTML="";
@@ -47,10 +48,23 @@ function flipcard(size=4){
         card.forEach(card => {
         card.addEventListener('click',function(){
         card.classList.toggle('flipped');
+        if(firstCard==null){
+            firstCard = card;
+            firstCardValue = cardBack.value;
+            console.log(firstCard);
+            console.log(firstCardValue);}
+        else{
+            secondCard = card;
+            console.log(secondCard);
+        }
+        if(firstCard==secondCard){
+            score.innerHTML = score.innerHTML+1;
+        }
         })})
-    }
-function checkMatch(){
 
-}
+        }
+
+    
+
 
 
