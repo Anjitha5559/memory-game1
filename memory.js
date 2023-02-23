@@ -40,33 +40,43 @@ function formMatrix(realArray,size=4){
     }
 }
 function flipcard(size=4){
-        let card = document.querySelectorAll('.slots');
-        console.log(card);
-        console.log("hwy there");
-        card.forEach(card => {
+    let card = document.querySelectorAll('.slots');
+    console.log(card);
+    console.log("hwy there");
+    let firstCard = null;
+    let firstCardValue = null;
+    let secondCard = null;
+    card.forEach(card => {
         card.addEventListener('click',function(){
-        card.classList.toggle('flipped');
-        if(firstCard==null){
-            firstCard = card;
-        var firstCardValue =firstCard.children[1].innerHTML;
+            card.classList.toggle('flipped');
+            if(firstCard==null){
+                firstCard = card;
+                firstCardValue = firstCard.children[1].innerHTML;
+                console.log(firstCard);
+                console.log(firstCardValue)
+            } else {
+                secondCard = card;
+                console.log(secondCard);
+                var secondCardValue = secondCard.children[1].innerHTML;
+                console.log(secondCardValue);
+                if(firstCardValue==secondCardValue){
+                    console.log("match");
+                    score.innerHTML = score.innerHTML+1;
+                    firstCard.classList.remove('flipped');
+                    secondCard.classList.remove('flipped');
+                } else {
+                    setTimeout(() =>{
+                        console.log("no match");
+                        secondCard.classList.remove('flipped');
+                        firstCard = null;
+                        secondCard = null;
+                    },1000)
+                }
+            }
+        });
+    });
+}
 
-            console.log(firstCard);
-            console.log(firstCardValue)
-        }
-        else{
-            secondCard = card;
-            console.log(secondCard);
-            var secondCardValue =secondCard.children[1].innerHTML;
-            console.log(secondCardValue);
-
-        }
-        if(firstCardValue==secondCardValue){
-            score.innerHTML = score.innerHTML+1;
-        }
-        })})
-        }
-
-    
 
 
 
