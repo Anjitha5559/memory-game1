@@ -30,7 +30,7 @@ function formMatrix(tempArray,size=4){
     for(let i=0;i<size*size;i++){
        gameBody.innerHTML+=`
 
-        <div class="slots"id="card">
+        <div class="slots">
         <div class="cardFront">
 ?  </div>
   <div class="cardBack">

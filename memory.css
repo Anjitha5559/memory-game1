@@ -71,6 +71,7 @@ body{
 }
 .slots.flipped{
     transform: rotateY(180deg);
+    color: #1b1a1a;
 }
 
 #footer{
