@@ -1,5 +1,12 @@
 const gameBody = document.getElementById('gameBody');
-makeRandArray();
+
+startGame();
+function startGame(){
+    makeRandArray();
+    var tempArray = makeRandArray();
+    formMatrix(tempArray);
+    flipcard();
+}
 
 function makeRandArray(size=4){
     size = (size*size)/2;
@@ -14,9 +21,7 @@ function makeRandArray(size=4){
         tempArray.push(randomNumber);
     }
     console.log(tempArray);
-    formMatrix(tempArray);
     return tempArray;
-
 
 }
 function formMatrix(tempArray,size=4){
@@ -37,19 +42,17 @@ function formMatrix(tempArray,size=4){
         ${realArray[i]}
         </div>
     </div>`
-
-
     }
 }
-flipcard();
 function flipcard(size=4){
 
-    for(let i=0;i<size*size;i++){
         let card = document.querySelectorAll('.slots');
+        console.log(card);
+        console.log("hwy there");
         card.forEach(card => {
         card.addEventListener('click',function(){
         card.classList.toggle('flipped');
         })})
     }
-}
+
 
