@@ -54,5 +54,8 @@ function flipcard(size=4){
         card.classList.toggle('flipped');
         })})
     }
+function checkMatch(){
+    
+}
 
 
