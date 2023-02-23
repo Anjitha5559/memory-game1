@@ -2,7 +2,6 @@ const gameBody = document.getElementById('gameBody');
 
 startGame();
 function startGame(){
-    makeRandArray();
     var tempArray = makeRandArray();
     formMatrix(tempArray);
     flipcard();
@@ -55,7 +54,7 @@ function flipcard(size=4){
         })})
     }
 function checkMatch(){
-    
+
 }
 
 
