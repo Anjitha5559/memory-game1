@@ -60,7 +60,7 @@ function flipcard(size=4){
             console.log(secondCardValue);
 
         }
-        if(firstCardValue=secondCardValue){
+        if(firstCardValue==secondCardValue){
             score.innerHTML = score.innerHTML+1;
         }
         })})
