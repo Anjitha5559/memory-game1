@@ -1,6 +1,5 @@
 const gameBody = document.getElementById('gameBody');
 const score = document.getElementById('score');
-const cardBack = document.querySelectorAll('.cardBack');
 let firstCard = null;
 let secondCard = null;
 startGame();
@@ -41,7 +40,6 @@ function formMatrix(realArray,size=4){
     }
 }
 function flipcard(size=4){
-
         let card = document.querySelectorAll('.slots');
         console.log(card);
         console.log("hwy there");
@@ -50,18 +48,22 @@ function flipcard(size=4){
         card.classList.toggle('flipped');
         if(firstCard==null){
             firstCard = card;
-            firstCardValue = cardBack.value;
+        var firstCardValue =firstCard.children[1].innerHTML;
+
             console.log(firstCard);
-            console.log(firstCardValue);}
+            console.log(firstCardValue)
+        }
         else{
             secondCard = card;
             console.log(secondCard);
+            var secondCardValue =secondCard.children[1].innerHTML;
+            console.log(secondCardValue);
+
         }
-        if(firstCard==secondCard){
+        if(firstCardValue=secondCardValue){
             score.innerHTML = score.innerHTML+1;
         }
         })})
-
         }
 
     
