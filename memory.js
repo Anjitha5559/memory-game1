@@ -1,35 +1,39 @@
 const gameBody = document.getElementById('gameBody');
 const score = document.getElementById('score');
+const moves = document.getElementById('moves');
 let firstCard = null;
 let secondCard = null;
+score.innerHTML = 0;
+moves.innerHTML = 0;
+
 startGame();
-function startGame(){
+function startGame() {
     var realArray = makeRandArray();
     formMatrix(realArray);
     flipcard();
 }
-function makeRandArray(size=4){
-    size = (size*size)/2;
+function makeRandArray(size = 4) {
+    size = (size * size) / 2;
     console.log(size);
     let tempArray = [];
-    for(let i=0;i<size;i++){
-        let randomNumber = Math.floor(Math.random()*20);
-        if(tempArray.includes(randomNumber)){
+    for (let i = 0; i < size; i++) {
+        let randomNumber = Math.floor(Math.random() * 20);
+        if (tempArray.includes(randomNumber)) {
             i--;
             continue;
         }
         tempArray.push(randomNumber);
     }
-    let realArray = [...tempArray,...tempArray];
+    let realArray = [...tempArray, ...tempArray];
     console.log(realArray);
     realArray.sort(() => Math.random() - 0.5);
     console.log(realArray);
     return realArray;
 }
-function formMatrix(realArray,size=4){
-    gameBody.innerHTML="";
-    for(let i=0;i<size*size;i++){
-       gameBody.innerHTML+=`
+function formMatrix(realArray, size = 4) {
+    gameBody.innerHTML = "";
+    for (let i = 0; i < size * size; i++) {
+        gameBody.innerHTML += `
         <div class="slots">
         <div class="cardFront">
 ?  </div>
@@ -39,7 +43,7 @@ function formMatrix(realArray,size=4){
     </div>`
     }
 }
-function flipcard(size=4){
+function flipcard(size = 4) {
     let card = document.querySelectorAll('.slots');
     console.log(card);
     console.log("hwy there");
@@ -47,9 +51,9 @@ function flipcard(size=4){
     let firstCardValue = null;
     let secondCard = null;
     card.forEach(card => {
-        card.addEventListener('click',function(){
+        card.addEventListener('click', function () {
             card.classList.toggle('flipped');
-            if(firstCard==null){
+            if (firstCard == null) {
                 firstCard = card;
                 firstCardValue = firstCard.children[1].innerHTML;
                 console.log(firstCard);
@@ -59,18 +63,27 @@ function flipcard(size=4){
                 console.log(secondCard);
                 var secondCardValue = secondCard.children[1].innerHTML;
                 console.log(secondCardValue);
-                if(firstCardValue==secondCardValue){
+                if (firstCardValue == secondCardValue) {
                     console.log("match");
-                    score.innerHTML = score.innerHTML+1;
-                    firstCard.classList.remove('flipped');
-                    secondCard.classList.remove('flipped');
+                    var newScore = parseInt(score.innerHTML);
+                    score.innerHTML = "SCORE : " + newScore + 1;
+                    firstCard.style.pointerEvents = "none";
+                    secondCard.style.pointerEvents = "none";
+                    console.log(score.innerHTML);
+                    console.log(newScore);
+                    firstCard = null;
+                    secondCard = null;
+
                 } else {
-                    setTimeout(() =>{
+                    var newMoves = parseInt(moves.innerHTML);
+                    moves.innerHTML = "MOVES : " + newMoves + 1;
+                    setTimeout(() => {
                         console.log("no match");
+                        firstCard.classList.remove('flipped');
                         secondCard.classList.remove('flipped');
                         firstCard = null;
                         secondCard = null;
-                    },1000)
+                    }, 1000)
                 }
             }
         });
