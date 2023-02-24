@@ -1,12 +1,12 @@
 const gameBody = document.getElementById('gameBody');
 const score = document.getElementById('score');
 const moves = document.getElementById('moves');
+const start = document.getElementById('start');
 let firstCard = null;
 let secondCard = null;
 score.innerHTML = 0;
 moves.innerHTML = 0;
-
-startGame();
+start.addEventListener('click', startGame);
 function startGame() {
     var realArray = makeRandArray();
     formMatrix(realArray);
@@ -66,7 +66,7 @@ function flipcard(size = 4) {
                 if (firstCardValue == secondCardValue) {
                     console.log("match");
                     var newScore = parseInt(score.innerHTML);
-                    score.innerHTML = "SCORE : " + newScore + 1;
+                    score.innerHTML =+ newScore + 1;
                     firstCard.style.pointerEvents = "none";
                     secondCard.style.pointerEvents = "none";
                     console.log(score.innerHTML);
@@ -76,7 +76,9 @@ function flipcard(size = 4) {
 
                 } else {
                     var newMoves = parseInt(moves.innerHTML);
-                    moves.innerHTML = "MOVES : " + newMoves + 1;
+                    moves.innerHTML =+ newMoves + 1;
+                    console.log(moves.innerHTML);
+                    console.log(newMoves);
                     setTimeout(() => {
                         console.log("no match");
                         firstCard.classList.remove('flipped');

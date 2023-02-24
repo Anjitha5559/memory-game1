@@ -94,11 +94,11 @@ body {
 
 #footer {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 5vh;
     width: 50vw;
-
     background-color: black;
     line-height: 5vh;
     border-radius: 20px;
@@ -106,4 +106,20 @@ body {
     border-top-style: solid;
     border-top-color: #f34949;
     box-shadow: #b12525 0px 0px 10px 0px;
+}
+#start{
+    background-color: #1ba9c2;
+    border-radius: 20px;
+    width: 25vw;
+    height: 5vh;
+    box-shadow: #ffffff 0px 0px 10px 0px;
+    font-size: 110%;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+#start:hover{
+    background-color: #1b1a1a;
+    color: antiquewhite;
+    border: 2px solid #1ba9c2;
+    cursor: pointer;
 }
