@@ -7,8 +7,8 @@ let secondCard = null;
 score.innerHTML = 0;
 moves.innerHTML = 0;
 let size = 2;
-start.addEventListener('click', startGame);
-function startGame() {
+start.addEventListener('click', startGame(size));
+function startGame(size) {
     var realArray = makeRandArray(size);
     formMatrix(realArray, size);
     flipcard(size);
@@ -86,7 +86,10 @@ function flipcard(size) {
                         <div id="next"><button id="nextLevel">NEXT LEVEL</button></div>`;
                         nextLevel.addEventListener('click', function () {
                             size = size + 2;
-                            startGame();
+                            score.innerHTML = 0;
+                            moves.innerHTML = 0;
+                            console.log(size);
+                            startGame(size);
                         })
 
                     }
