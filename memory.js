@@ -6,8 +6,9 @@ let firstCard = null;
 let secondCard = null;
 score.innerHTML = 0;
 moves.innerHTML = 0;
-let size = 2;
+let size = 6;
 start.addEventListener('click', startGame(size));
+
 function startGame(size) {
     var realArray = makeRandArray(size);
     formMatrix(realArray, size);
@@ -80,9 +81,9 @@ function flipcard(size) {
                     console.log(score.innerHTML);
                     if (score.innerHTML == size * size / 2) {
                         gameBody.innerHTML = `<div id="win">You Win</div>
-                        <div id="win">Your Score is ${score.innerHTML}</div>
-                        <div id="win">Your Moves are ${moves.innerHTML}</div>
-                        <div id="win">Your Accuracy is ${score.innerHTML / moves.innerHTML * 100}%</div>
+                        <div id="win">Your Score is:${score.innerHTML}</div>
+                        <div id="win">Your Moves are:${moves.innerHTML}</div>
+                        <div id="win">Your Accuracy is:${score.innerHTML / moves.innerHTML * 100}%</div>
                         <div id="next"><button id="nextLevel">NEXT LEVEL</button></div>`;
                         nextLevel.addEventListener('click', function () {
                             size = size + 2;
@@ -105,7 +106,7 @@ function flipcard(size) {
                         secondCard.classList.remove('flipped');
                         firstCard = null;
                         secondCard = null;
-                    }, 1000)
+                    }, 700)
                 }
             }
         });
