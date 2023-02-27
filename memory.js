@@ -14,6 +14,8 @@ function setSlotWidth(){
     document.documentElement.style.setProperty('--slotwidth', width + 'vh');
 }
 function startGame() {
+    start.innerHTML = "RESTART";
+    
     setSlotWidth();
     score.innerHTML = 0;
     moves.innerHTML = 0;
