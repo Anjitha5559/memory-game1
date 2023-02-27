@@ -2,21 +2,27 @@ const gameBody = document.getElementById('gameBody');
 const score = document.getElementById('score');
 const moves = document.getElementById('moves');
 const start = document.getElementById('start');
-let size = 2;
+let level = 2;
+let size = 0;
 
 start.addEventListener('click', function () {
-    startGame(size);
+    startGame();
 })
-
+function setSlotWidth(){
+    let width = 70/level;
+    console.log(width);
+    document.documentElement.style.setProperty('--slotwidth', width + 'vh');
+}
 function startGame() {
+    setSlotWidth();
     score.innerHTML = 0;
     moves.innerHTML = 0;
-    var realArray = makeRandArray(size);
-    formMatrix(realArray, size);
-    flipcard(size);
+    var realArray = makeRandArray(level);
+    formMatrix(realArray,level);
+    flipcard();
 }
-function makeRandArray(size) {//This function will make an array of random numbers
-    size = (size * size) / 2;//If the size is 2, then the size of the array will be 4 because we need 2 of each number similarly if it is 4 then the size of array will be 16
+function makeRandArray(level) {//This function will make an array of random numbers
+    size = (level * level) / 2;//If the size is 2, then the size of the array will be 4 because we need 2 of each number similarly if it is 4 then the size of array will be 16
     let tempArray = [];//initiating the tempArray variable and setting it to an empty array, this array stores the random numbers
     for (let i = 0; i < size; i++) {
         let randomNumber = Math.floor(Math.random() * 20);//generating a random number between 0 and 20,generally math.random produce random numbers between 0 and 1, so we multiply it by 20 to get a number between 0 and 20
@@ -75,14 +81,17 @@ function matchCards(firstCardValue, secondCardValue, firstCard, secondCard) {
         firstCard = null;
         secondCard = null;
 
-        if (score.innerHTML == size * size / 2) {
+        if (score.innerHTML == level*level/ 2) {
             gameBody.innerHTML = `
+            <div class="col">
                         <div class="win">You Win</div>
                         <div class="win">Score:${score.innerHTML}</div>
                         <div class="win">Moves:${moves.innerHTML}</div>
-                        <div class="next"><button id="nextLevel">NEXT LEVEL</button></div>`;
+                        <div class="next"><button id="nextLevel">NEXT LEVEL</button></div>
+            </div>            `;
             nextLevel.addEventListener('click', function () {
-                size = size + 2;
+                level= level + 2;
+                console.log(size);
                 startGame();
             })
         }

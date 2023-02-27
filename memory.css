@@ -1,5 +1,5 @@
 :root{
-    --slotwidth: 15vh;
+    --slotwidth: 0px;
     --fontcolor: #ffeded;
     --backgroundcolor: #2a2b2a;
     --themecolor: #99b96e;
@@ -26,6 +26,7 @@
     padding: 30px;
 }
 .row,.col{
+    width:100%;
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -62,12 +63,13 @@ body {
     width: 80vh;
     background-color: #99b96e;
     flex-wrap: wrap;
+    overflow: scroll;
 }
 
 .slots {
     background-color: #2a2b2a;
     border-radius:var(--borderRadius);
-    height: 15vh;
+    height: var(--slotwidth);
     width: var(--slotwidth);
     color: var(--fontcolor);
     font-size: 120%;
@@ -116,7 +118,9 @@ body {
     border-radius:var(--borderRadius);
     border: var(--borderColor);
     box-shadow: var(--shadowcolor);
-    padding: 2%;
+    width: 60%;
+    padding:10px;
+    margin:20px;    
 }
 
 #nextLevel {
@@ -124,9 +128,13 @@ body {
     margin: 0 auto;
     background-color: #1ba9c2;
     border-radius:var(--borderRadius);
-    padding: 3%;
     font-size: 150%;
+    padding: 10px;
+    box-shadow: var(--shadowcolor);
+
+
 }
+
 
 #start {
     background-color: #1ba9c2;
@@ -144,4 +152,9 @@ body {
     color:var(--fontcolor);
     border: var(--borderColor);
     cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
 }
