@@ -48,6 +48,9 @@ Contributions are welcome! If you would like to contribute, please follow these 
 2. Create a new branch: `git checkout -b feature-branch-name`
 3. Make your changes and commit them: `git commit -m 'Add some feature'`
 4. Push to the branch: `git push origin feature-branch-name`
-5. Open a pull request.![1st Level](https://github.com/Anjitha5559/memory-game1/assets/84130915/8d2eba26-d8eb-42a7-a1f5-f1c0d2e553bd)
+5. Open a pull request.
+
+## Screenshot 
+![1st Level](https://github.com/Anjitha5559/memory-game1/assets/84130915/8d2eba26-d8eb-42a7-a1f5-f1c0d2e553bd)
 ![Second Level](https://github.com/Anjitha5559/memory-game1/assets/84130915/f72b0345-587b-4fc4-b6a4-60b9037e6cef)
 ![ Game over](https://github.com/Anjitha5559/memory-game1/assets/84130915/c36e3e3f-f51b-4ff0-b49c-032db5aa85fe)
